@@ -1,0 +1,51 @@
+* {
+    color: #666;
+
+}
+
+header {
+    margin-top: 30px;
+}
+
+
+
+footer {
+    margin-top: 20px;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+}
+
+
+header nav a, footer nav a {
+    margin-right: 30px;
+}
+
+header nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+ 
+}
+
+header nav li {
+    float: left;
+}
+
+header nav li a {
+    display: block;
+    color: #666;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+header nav li a:hover:not(.active) {
+    background-color: #ddd;
+}

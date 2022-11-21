@@ -1,0 +1,52 @@
+<%= form_with(model: reminder) do |form| %>
+  <% if reminder.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(reminder.errors.count, "error") %> prohibited this reminder from being saved:</h2>
+
+      <ul>
+        <% reminder.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :titulo, style: "display: block" %>
+    <%= form.text_field :titulo %>
+  </div>
+
+  <div>
+    <%= form.label :descricao, style: "display: block" %>
+    <%= form.text_area :descricao %>
+  </div>
+
+  <div>
+    <%= form.label :data, style: "display: block" %>
+    <%= form.date_field :data %>
+  </div>
+
+  <div>
+    <%= form.label :hora, style: "display: block" %>
+    <%= form.time_field :hora %>
+  </div>
+
+  <div>
+    <%= form.label :prioridade, style: "display: block" %>
+    <%= form.number_field :prioridade %>
+  </div>
+
+  <div>
+    <%= form.label :status, style: "display: block" %>
+    <%= form.check_box :status %>
+  </div>
+
+  <div>
+    <%= form.label :tag_id, style: "display: block" %>
+    <%= collection_select(:reminder, :tag_id, @tags, :id, :titulo) %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

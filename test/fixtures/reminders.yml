@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  titulo: MyString
+  descricao: MyText
+  data: 2022-09-26
+  hora: 2022-09-26 16:14:18
+  prioridade: 1
+  status: false
+  tag: one
+
+two:
+  titulo: MyString
+  descricao: MyText
+  data: 2022-09-26
+  hora: 2022-09-26 16:14:18
+  prioridade: 1
+  status: false
+  tag: two

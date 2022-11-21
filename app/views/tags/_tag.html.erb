@@ -1,0 +1,17 @@
+<div id="<%= dom_id tag %>">
+  <p><strong>Título: </strong><%= tag.titulo %></p>
+
+
+
+  <ul>
+  <% tag.reminders.each do |reminder| %>
+    <li><a href="<%=reminder_path(reminder)%>"><%= reminder.titulo %></a></li>
+    <hr>
+  <% end %>
+  </ul>
+
+
+
+
+
+</div>

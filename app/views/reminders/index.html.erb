@@ -1,0 +1,25 @@
+<h1>Lembretes</h1>
+
+
+<ul>
+<% @tags.each do |tag| %>
+  <strong><li><%= tag.titulo %></li></strong>
+    <ul>
+    <% tag.reminders.each do |reminder| %>
+      <li><a href="<%=reminder_path(reminder)%>"><%= reminder.titulo %></a></li>
+      <% end %>
+      </ul>
+      <hr>
+<% end %>
+</ul>
+
+
+
+<br>
+
+<button>
+<%= link_to "Novo lembrete", new_reminder_path %>
+</button>
+<button>
+<%= link_to "Página inicial", home_index_path %>
+</button>

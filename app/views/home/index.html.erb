@@ -1,0 +1,35 @@
+<%= stylesheet_link_tag "teste.css", "data-turbo-track": "reload" %>
+
+
+<h1>Home</h1>
+
+<header>
+        <nav>
+            <ul>
+                <li><%= link_to "Página inicial", home_index_path %><li>
+                <li><a href="#">Hoje</a></li>
+                <li><%= link_to "Todos", reminders_path %></li>
+                <li><a href="#">Concluídos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <hr>
+
+    <main>
+        <ul>
+            <h3>Minhas Listas</h3>
+            <% @tags.each do |tag| %>
+                <li><a href="<%=tag_path(tag)%>"><%= tag.titulo %></a></li>
+            <% end %>
+        </ul>
+    </main>
+    
+    <hr>
+
+    <footer>
+        <nav>
+            <%= link_to "Novo lembrete", new_reminder_path %>
+            <%= link_to "Adicionar Lista", new_tag_path %>
+        </nav>
+    </footer>

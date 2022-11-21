@@ -1,0 +1,13 @@
+
+    <h1><%= @reminder.titulo %></h1>
+    <strong><p>Descrição:</strong> <%= @reminder.descricao %></p>
+    <strong><p>Etiqueta:</strong> <%= @reminder.tag.titulo %></p>
+
+
+<br>
+
+<div>
+  <button><%= link_to "Editar", edit_reminder_path(@reminder) %></button><%= button_to "Remover", @reminder, method: :delete %>
+</div>
+<br>
+<button><%= link_to "Voltar para lembretes", reminders_path %></button>
