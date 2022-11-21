@@ -1,0 +1,20 @@
+<h1>Hoje</h1>
+<ul>
+<% @tags.each do |tag| %>
+  
+  <% unless tag.reminders.where(data: Date.today).empty? %>
+  <strong><li><%= tag.titulo %></li></strong>
+    <ul>
+    <% tag.reminders.where(data: Date.today).find_each do |reminder| %>
+      <li><a href="<%=reminder_path(reminder)%>"><%= reminder.titulo %></a></li>
+      <% end %>
+      </ul>
+      <hr>
+  <% end %>
+<% end %>
+</ul>
+
+<br>
+<button>
+<%= link_to "Página inicial", home_index_path %>
+</button>

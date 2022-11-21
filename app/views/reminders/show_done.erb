@@ -1,11 +1,10 @@
-<h1>Lembretes</h1>
-
-
+<h1>Concluídos</h1>
 <ul>
 <% @tags.each do |tag| %>
+  <% unless tag.reminders.where(status: true).empty? %>
   <strong><li><%= tag.titulo %></li></strong>
     <ul data-controller="reminders">
-    <% tag.reminders.each do |reminder| %>
+    <% tag.reminders.where(status: true).each do |reminder| %>
       
       <li>
         <%= form_with(model: reminder) do |form| %>
@@ -18,22 +17,20 @@
           <a href="<%=reminder_path(reminder)%>">
             <%= reminder.titulo %>
             <% if reminder.data %>
-              - <%= reminder.data.strftime('%d/%m/%Y') %>
+              | <%= reminder.data.strftime('%d/%m/%Y') %>
             <% end %>
           </a>   
+          
         <% end %>
       </li>
       <% end %>
       </ul>
       <hr>
+      <% end %>
 <% end %>
 </ul>
 
 <br>
-
-<button>
-<%= link_to "Novo lembrete", new_reminder_path %>
-</button>
 <button>
 <%= link_to "Página inicial", home_index_path %>
 </button>

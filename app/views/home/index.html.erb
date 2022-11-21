@@ -1,15 +1,16 @@
 <%= stylesheet_link_tag "teste.css", "data-turbo-track": "reload" %>
 
 
-<h1>Home</h1>
+
 
 <header>
         <nav>
+            <h1>Home</h1>
             <ul>
                 <li><%= link_to "Página inicial", home_index_path %><li>
-                <li><a href="#">Hoje</a></li>
+                <li><%= link_to "Hoje", reminders_today_path %><li>
                 <li><%= link_to "Todos", reminders_path %></li>
-                <li><a href="#">Concluídos</a></li>
+                <li><%= link_to "Concluídos", reminders_done_path %></li>
             </ul>
         </nav>
     </header>
@@ -20,7 +21,7 @@
         <ul>
             <h3>Minhas Listas</h3>
             <% @tags.each do |tag| %>
-                <li><a href="<%=tag_path(tag)%>"><%= tag.titulo %></a></li>
+                <li><a href="<%=tag_path(tag)%>"><%= tag.titulo %> (<%= tag.reminders.length %>)</a></li>
             <% end %>
         </ul>
     </main>

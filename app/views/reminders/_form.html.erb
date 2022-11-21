@@ -45,8 +45,8 @@
     <%= form.label :tag_id, style: "display: block" %>
     <%= collection_select(:reminder, :tag_id, @tags, :id, :titulo) %>
   </div>
-
+<br>
   <div>
-    <%= form.submit %>
+    <%= form.submit "Criar lembrete"%>
   </div>
 <% end %>

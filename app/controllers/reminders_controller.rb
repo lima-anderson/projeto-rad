@@ -12,6 +12,21 @@ class RemindersController < ApplicationController
     
   end
 
+  # GET /reminders/today
+  def show_today
+    @tags = Tag.all
+  end
+
+  def show_done
+    @tags = Tag.all
+  end
+
+  def toggle_status
+    @reminder = Reminder.find(params[:id])
+    @reminder.update(status: params[:status])
+  end
+
+
   # GET /reminders/new
   def new
     @reminder = Reminder.new
