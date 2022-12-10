@@ -1,36 +1,32 @@
-<%= stylesheet_link_tag "teste.css", "data-turbo-track": "reload" %>
-
-
-
-
 <header>
-        <nav>
-            <h1>Home</h1>
-            <ul>
-                <li><%= link_to "Página inicial", home_index_path %><li>
-                <li><%= link_to "Hoje", reminders_today_path %><li>
-                <li><%= link_to "Todos", reminders_path %></li>
-                <li><%= link_to "Concluídos", reminders_done_path %></li>
-            </ul>
-        </nav>
-    </header>
+    <nav class="navbar navbar-light">
+        <div class="navbar-nav" style="margin-top: 15px; margin-left: 25px; font-size: 18px;">
+            <a class="nav-item nav-link" href="<%= home_index_path %>">Página inicial<span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="<%= reminders_today_path %>">Hoje</a>
+            <a class="nav-item nav-link" href="<%= reminders_path %>">Todos</a>
+            <a class="nav-item nav-link disabled" href="<%= reminders_done_path %>">Concluídos</a>
+        </div>
+    </nav>
+
+
+</header>
 
     <hr>
 
-    <main>
-        <ul>
-            <h3>Minhas Listas</h3>
-            <% @tags.each do |tag| %>
-                <li><a href="<%=tag_path(tag)%>"><%= tag.titulo %> (<%= tag.reminders.length %>)</a></li>
-            <% end %>
-        </ul>
-    </main>
-    
-    <hr>
+<main>
+    <ul>
+        <h3>Minhas Listas</h3>
+        <% @tags.each do |tag| %>
+            <li><a href="<%=tag_path(tag)%>"><%= tag.titulo %> (<%= tag.reminders.length %>)</a></li>
+        <% end %>
+    </ul>
+</main>
 
-    <footer>
-        <nav>
-            <%= link_to "Novo lembrete", new_reminder_path %>
-            <%= link_to "Adicionar Lista", new_tag_path %>
-        </nav>
-    </footer>
+<hr>
+
+<footer>
+    <nav>
+        <%= link_to "Novo lembrete", new_reminder_path %>
+        <%= link_to "Adicionar Lista", new_tag_path %>
+    </nav>
+</footer>

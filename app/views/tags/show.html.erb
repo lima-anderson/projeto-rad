@@ -1,10 +1,31 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @tag %>
+<h1 style="margin-left: 10px;"><%= @tag.titulo %></h1>
+<ul style="margin-left: -20px;">
+  <% @tag.reminders.each do |reminder| %>
+    <li>
+        <%= form_with(model: reminder) do |form| %>
 
-<div>
+          <%= form.check_box :status,
+                                data: {
+                                  id: reminder.id,
+                                  action: "reminders#toggle_status"
+                                } %>
+          <a href="<%=reminder_path(reminder)%>">
+            <%= reminder.titulo %>
+            <% if reminder.data %>
+              - <%= reminder.data.strftime('%d/%m/%Y') %>
+            <% end %>
+          </a>   
+        <% end %>
+        <% end %>
+      </li>
+</ul>
+
+<div style="display: flex; margin-left: 10px;">
   <button><%= link_to "Editar", edit_tag_path(@tag) %></button>
   <%= button_to "Remover", @tag, method: :delete %></button>
 </div>
 <br>
-<button><%= link_to "Voltar para listas", tags_path %>
+
+<button style="margin-left: 10px;"><%= link_to "Voltar para listas", tags_path %>
