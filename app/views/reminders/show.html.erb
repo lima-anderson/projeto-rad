@@ -1,13 +1,12 @@
 
-    <h1><%= @reminder.titulo %></h1>
-    <strong><p>Descrição:</strong> <%= @reminder.descricao %></p>
-    <strong><p>Etiqueta:</strong> <%= @reminder.tag.titulo %></p>
+<h2 style="margin-left: 10px;"><%= @reminder.titulo %></h2>
 
+<strong style="margin-left: 10px;"><p>Descrição:</strong> <%= @reminder.descricao %></p>
 
-<br>
+<strong style="margin-left: 10px;"><p>Etiqueta:</strong> <%= @reminder.tag.titulo %></p>
 
-<div>
+<div style="display: flex; margin-left: 10px;">
   <button><%= link_to "Editar", edit_reminder_path(@reminder) %></button><%= button_to "Remover", @reminder, method: :delete %>
 </div>
 <br>
-<button><%= link_to "Voltar para lembretes", reminders_path %></button>
+<button style="margin-left: 10px;"><%= link_to "Voltar para lembretes", reminders_path %></button>
