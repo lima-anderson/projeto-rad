@@ -1,4 +1,4 @@
-<h1>Hoje</h1>
+<h1 style="margin-left: 10px;">Hoje</h1>
 <ul>
 <% @tags.each do |tag| %>
   
@@ -6,7 +6,19 @@
   <strong><li><%= tag.titulo %></li></strong>
     <ul>
     <% tag.reminders.where(data: Date.today).find_each do |reminder| %>
-      <li><a href="<%=reminder_path(reminder)%>"><%= reminder.titulo %></a></li>
+      <li>
+        <%= form_with(model: reminder) do |form| %>
+
+          <%= form.check_box :status,
+                                data: {
+                                  id: reminder.id,
+                                  action: "reminders#toggle_status"
+                                } %>
+            <a href="<%=reminder_path(reminder)%>">
+              <%= reminder.titulo %>
+            </a>
+          <% end %>
+      </li>
       <% end %>
       </ul>
       <hr>
@@ -15,6 +27,6 @@
 </ul>
 
 <br>
-<button>
+<button style="margin-left: 10px;">
 <%= link_to "Página inicial", home_index_path %>
 </button>

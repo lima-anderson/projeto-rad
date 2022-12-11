@@ -1,4 +1,4 @@
-<h1>Concluídos</h1>
+<h1 style="margin-left: 10px;">Concluídos</h1>
 <ul>
 <% @tags.each do |tag| %>
   <% unless tag.reminders.where(status: true).empty? %>
@@ -31,6 +31,6 @@
 </ul>
 
 <br>
-<button>
+<button style="margin-left: 10px;">
 <%= link_to "Página inicial", home_index_path %>
 </button>
