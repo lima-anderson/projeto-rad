@@ -1,13 +1,10 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-    connect() {
-        console.log(this.element)
-    }
+    
 
     toggle_status(e) {
         const id = e.target.dataset.id
-        console.log('acertou')
         const csrfToken = document.querySelector("[name='csrf-token']").content
 
         fetch(`/reminders/${id}/toggle_status`, {

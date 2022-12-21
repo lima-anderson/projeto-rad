@@ -1,7 +1,7 @@
 <p style="color: green"><%= notice %></p>
 
 <h1 style="margin-left: 10px;"><%= @tag.titulo %></h1>
-<ul style="margin-left: -20px;">
+<ul style="margin-left: -20px;" data-controller="reminders"ss>
   <% @tag.reminders.each do |reminder| %>
     <li>
         <%= form_with(model: reminder) do |form| %>
