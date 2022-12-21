@@ -2,7 +2,7 @@
 
 <ul>
   <% @tags.each do |tag| %>
-    <li><a href="<%=tag_path(tag)%>"><%= tag.titulo %> (<%= tag.reminders.length %>)</a></li>
+    <li><a href="<%=tag_path(tag)%>"><%= tag.titulo %> (<%= tag.reminders.select {|x| x.status == false }.length %>)</a></li>
   <% end %>
 </ul>
 <br>
